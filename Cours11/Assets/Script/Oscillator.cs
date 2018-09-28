@@ -20,6 +20,10 @@ public class Oscillator : MonoBehaviour {
         if(period <= Mathf.Epsilon) {
             return;
         }
-      
+        float cycle = Time.time / period;
+        const float taux = Mathf.PI * 2;
+        float rawSinWave = Mathf.Sin(cycle * taux);
+        Vector3 offfset = movementVector * rawSinWave;
+        transform.position = startingPos + offfset;
 	}
 }
